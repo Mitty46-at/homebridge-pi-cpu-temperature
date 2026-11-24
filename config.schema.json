@@ -1,0 +1,29 @@
+{
+  "pluginAlias": "PiTemperature",
+  "pluginType": "platform",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Sensor name",
+        "type": "string",
+        "default": "Raspberry Pi CPU Temperature"
+      },
+      "updateInterval": {
+        "title": "Update interval (seconds)",
+        "type": "integer",
+        "minimum": 10,
+        "default": 30
+      },
+      "sensorPath": {
+        "title": "CPU temperature file",
+        "type": "string",
+        "default": "/sys/class/thermal/thermal_zone0/temp"
+      },
+      "historyPath": {
+        "title": "Eve history storage directory",
+        "type": "string"
+      }
+    }
+  }
+}
