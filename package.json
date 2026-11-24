@@ -1,0 +1,29 @@
+{
+  "name": "homebridge-pi-cpu-temperature",
+  "version": "1.1.0",
+  "description": "A lightweight Homebridge platform plugin exposing Raspberry Pi CPU temperature with Eve history.",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18.0.0",
+    "homebridge": ">=1.8.0"
+  },
+  "keywords": [
+    "homebridge-plugin",
+    "raspberry-pi",
+    "cpu-temperature",
+    "eve-history"
+  ],
+  "author": "Mitty46-at",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mitty46-at/homebridge-pi-cpu-temperature.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mitty46-at/homebridge-pi-cpu-temperature/issues"
+  },
+  "homepage": "https://github.com/Mitty46-at/homebridge-pi-cpu-temperature#readme",
+  "dependencies": {
+    "fakegato-history": "^0.6.7"
+  }
+}
