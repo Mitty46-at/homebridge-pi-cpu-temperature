@@ -70,7 +70,6 @@ class PiTemperaturePlatform {
       storage: 'fs',
       path: this.historyPath
     });
-    accessory.addService(this.historyService);
     accessory.log = this.log;
 
     this.log.info('CPU temperature sensor started; sampling every %d seconds.', this.updateInterval / 1000);
