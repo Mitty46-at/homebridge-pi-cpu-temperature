@@ -51,6 +51,7 @@ class PiTemperaturePlatform {
       temperatureService = accessory.addService(Service.TemperatureSensor, this.name);
     }
     temperatureService.setCharacteristic(Characteristic.Name, this.name);
+    temperatureService.setCharacteristic(Characteristic.TemperatureDisplayUnits, Characteristic.TemperatureDisplayUnits.CELSIUS);
     temperatureService.setCharacteristic(Characteristic.StatusActive, true);
     temperatureService.setCharacteristic(Characteristic.StatusFault, Characteristic.StatusFault.NO_FAULT);
     temperatureService.setCharacteristic(Characteristic.StatusTampered, Characteristic.StatusTampered.NOT_TAMPERED);
