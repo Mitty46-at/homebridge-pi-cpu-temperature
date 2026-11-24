@@ -13,7 +13,10 @@
     "cpu-temperature",
     "eve-history"
   ],
-  "author": "Mitty46-at",
+  "author": {
+    "name": "Mitty46-at",
+    "url": "https://github.com/Mitty46-at"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
