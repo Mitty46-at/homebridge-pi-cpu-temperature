@@ -16,6 +16,7 @@ class PiTemperaturePlatform {
     this.api = api;
     this.accessories = [];
     this.timer = null;
+    this.historyService = null;
     this.currentTemperature = null;
     this.sensorPath = this.config.sensorPath || DEFAULT_SENSOR_PATH;
     this.updateInterval = Math.max(10, Number(this.config.updateInterval) || 30) * 1000;
@@ -63,12 +64,12 @@ class PiTemperaturePlatform {
       });
 
     const FakeGatoHistoryService = require('fakegato-history')(this.api);
-    const historyService = new FakeGatoHistoryService('weather', accessory, {
+    this.historyService = new FakeGatoHistoryService('weather', accessory, {
       log: this.log,
       storage: 'fs',
       path: this.historyPath
     });
-    accessory.addService(historyService);
+    accessory.addService(this.historyService);
     accessory.log = this.log;
 
     this.log.info('CPU temperature sensor started; sampling every %d seconds.', this.updateInterval / 1000);
@@ -95,6 +96,12 @@ class PiTemperaturePlatform {
     }
 
     this.currentTemperature = temperature;
+    if (this.historyService) {
+      this.historyService.addEntry({
+        time: Math.round(Date.now() / 1000),
+        temp: temperature
+      });
+    }
     this.log.debug('CPU temperature: %s °C', temperature);
   }
 }
